@@ -1,0 +1,87 @@
+Javascript contains six basic value types
+1. numbers
+2. strings
+3. booleans
+4. objects
+5. functions
+6. undefined 
+
+Number 
+  can be both integers and fractional numbers ex. 3 and 3.124. Calculations with whole numbers also known as integers are guaranteed to be precise while fractional numbers will always be a very close aproximation but not precisely calculated.
+
+the follwing operators can be use with numbers +, -, *, / (addition, subtraction, multiplication, multiplication). the order of operations is the same as basic arithmetic you can change the order of operations using () causing whatever is within the parenthisis to be evaulted first. So multiplication and subtraction will be evaulated before addition and subtraction. When operators with the same precedence appear the statement will be evaulated from left to right. Finally the last arithmetic oparator is the % (modulo or remainder operator), this will give you the remainder of dividing x / y ex. 300 % 100 gives 0 and 13 & 4 gives you one.
+
+under the type number exist three special number values that dont behave as normal numbers.
+  1. Infinity
+  2. -Infinity
+  3. NaN
+
+    using infinity is not recomended
+
+    NaN is "not a number" and resides under the type number despite the reference - results that cant be accurately represented as a number ex. 0/0
+
+String 
+  represent text is written using quotes ex. 'this is a string' or "this is also a string" either example can be used with the exception that both the quotes must much. String must be written on one line. Escaping a character allows you to use special characters and indicates the character behind the \ is special such as \n creating a new line or \t creating a tabbed space. 
+
+the + operator can be used on strings and it will concatenate the two strings. "oneside" + "twoside" = "onesidetwoside"
+
+- Two types of operators 
+    1. Binary operators are those that we have seen previously operating on two values 
+    2. Unary operators only take one value such as typeof - typeof will return a string value indicating the type value it received
+        - the - operator can be both a unary and binary operator
+
+to output to the console we use console.log("string") 
+
+Boolean 
+  has exactly two values: true and false
+  we can use the greater than and less than signs to produce these values 3 > 2 = true or 3 < 2 = false
+  - these are binary operators
+
+  you can compare string and the comparison is based on the Unicode standard that assigns a number value to each charachter
+  other operators include >=, <=, ==, != (greater than or equal, less than or equal, equal, not equal)
+
+  Nan is the only value in javascript that is not equal to itself
+
+  we can also apply three logical operaters to boolean values: and, or, not
+
+  and is represented as true && true which would evaluate to true. true && false would evaluate to false. both values have to be true to evaluate to true
+
+  or is represented as true || true which evaluates to true, true || false also evaluates to true, false || false evaluates to false
+
+  not represented as ! flips the value behind it !true = false !false = true
+
+  a final operator that is a ternary operator operating on three values known as the conditional operator
+
+    true ? 1 : 2 would give 1
+    false ? 1 : 2 would give 2
+
+    if the value on the left of the question mark is true the value on the left of : is given and if the value on the left of the ? si given the value on the right of the : is given
+
+Undefined
+    two values under this type null and undefined 
+      - these denote the absence of value. they are values but carry no information 
+
+Automatic type conversion
+  if given two values of differnt type javascript will automatically convert them sometimes to unexpected values this is known as type coercion 
+
+  if a value doesnt map to a number such as "five" or undefined and is converted to a number the value NaN will be produced. Any further arithmetic operations on NaN will produce NaN
+
+  when comparing using == you should always get true when the values are the same unless its NaN.
+
+  if a null or undefined value occurs both sides of the == must be null or undefined to get true
+
+  certain values can be converted to boolean values false = 0, NaN, "" empty string, while other values are true
+
+  if you dont want type conversion to happen you can use the strict equals === and strict not equals !==
+
+  its a good idea to use the strict operators as a defense to unexpecte type coercion
+
+Short-circuiting of logical operators
+
+  these operators will only evaluate as far as necessary to satisfy the condition
+    true || false - the left side will only evaluate because this satisfies this statement the right side will be ignored
+      - using the || in this way can allow a default value so if the left value is an empty value the one on the right will be used
+    false && true - only the left will be evaluated and the right ignored
+    the ternary operator works the same way if the first condition is always evaluated but the second or third may not be depending on which one is picked true ? 1 : 2 - only the first and second, false ? 1 : 2 only the first and third
+
+    this behavior is called short circuit evaluation
