@@ -33,6 +33,16 @@ Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a way to
 fix this?
 */
 
+function isEven(num) {
+    if (num % 2 == 0) {
+        return true;
+    } else if (num % 2 == 1){
+        return false;
+    } else {
+        return isEven((num - 2) * -1);
+    }
+}
+isEven(50);
 /*
 Bean counting
 
@@ -51,3 +61,25 @@ it takes a second argument that indicates the character that is to be counted
 (rather than counting only uppercase “B” characters). Rewrite countBs to make
 use of this new function
 */
+
+function countB(str) {
+    var count = 0;
+    for(var i = 0; i < str.length; i++) {
+        if ("B" == str.charAt(i)) {
+            count += 1;
+        }
+       
+    }
+    return count;
+}
+
+function countChar(str, char) {
+    var count = 0;
+    for(var i = 0; i < str.length; i++) {
+        if (char == str.charAt(i)) {
+            count += 1;
+        }
+    }
+    return count;
+}
+
