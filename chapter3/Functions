@@ -1,0 +1,201 @@
+Functions
+    - a function definition is the same as defining a varibale but the value
+    given is that of a function
+    
+    var func = function(x) {
+        do semthing
+    }
+    
+    it is denoted with the special keyword "function" and can have parameters (x)
+    followed by a body within the {} these statements are what are executed when the 
+    function is called 
+    
+    func(10)
+    
+    functions can take multiple parameters or none at all
+    
+    functions can either return a value or create only a side effect
+    
+    the "return" statement would determine what value the function returns
+    
+    return result;
+    
+    if nothing is specified to be return the function will return undefined
+    
+Parameters and Scopes
+
+    parameters perform like regular variables but are given by the caller of 
+    the function
+    
+    these parameters are local to the function, these will be created every
+    time the function is called and used only at the time the function is executed
+    
+    parameters and varibales declared within the function with var are locally
+    to that function alone
+    
+    variables declared outside the scope of a function are considered to be global
+    because they are accesible to the program as a whole
+    
+    global variables can be accessed within a function so long as that same variable
+    hasnt been declared within the function
+    
+    if a variable declared within a function is not preface with var it will become 
+    a global variable
+    
+    var x = "global";
+    
+    var func = function() {
+        var x = "local";
+        console.log(x);
+    }
+    
+    func() would console local
+    console.log(x) would console global
+    
+    var func2 = function() {
+        x = "changes global"
+        console.log(x);
+    }
+    
+    func2() would console changes global
+    and now when console x it would be set to the new value
+    console.log(x) would console changes global
+    
+Nested Scopes
+
+    each local scope can see the scopes that contain the variable or funciton
+    the set of variables available to a function are determined by where that 
+    function resides in the program
+    
+    {
+        global
+        
+        function1 {
+            has access to global variables
+            
+                function2 {
+                    has access to global and function 1
+                }
+                
+                funtion2a {
+                    cant access function 2 because not nested
+                    and is at the same level but can access
+                    global and function1
+                }
+        }
+        
+    }
+    
+    this visibility is what is known as lexical scoping
+    
+    in javascript functions are the only things to create a new scope
+    
+    the let keyword which is introduce in six will allow us to create variables
+    local to a specific block rather than an enclosing function
+    
+Functions as values
+
+    functions can be used just as any other value, being passed as arguments, stored 
+    in a new place and can also be reassigned to a new value
+    
+Declaration Notation
+
+    you can also define a function using the below, this is called a function decleration
+    
+    function func() {
+        
+    }
+    
+    normally code is run from top to bottom as written but defining a function this way
+    removes it from this flow
+    
+    this moves it to the top of the scope allowing it to be used by any code within that scope
+    
+    if using this method of function declaration you should not do this withing 
+    an if block due to odd and uncharacteristic behavior
+    
+The call stack
+    the call stack creates a context to where a function is stored because when a function
+    is called it has to move the control to where the function is declared it then
+    runs that code and then returns to the place where it was called
+    
+    var func = function() {
+        console.log
+    }
+    
+    func(name);
+    console.log
+    
+    so in the above example when func is called the control jumps to where the declaration
+    is made putting this at the top of the call stack then returns 
+    
+optional arguments
+    javascript will allow you to pass more arguments than specified but will ignore 
+    the extra arguments
+    
+    if you pass to few arguments they will be assigned to undefined
+    
+    the downside is that this will not be immediatly apparent but gives you the power
+    to create a function that will take optional arguments
+    
+Closure
+    being able to reference a specific instance of local variables in an enclosing 
+    function
+    
+    var closure = function(n) {
+        var local = n;
+        return function() {
+            return n;
+        };
+    }
+    
+    var accessVar = closure(1);
+    1 would be stored in the closure function scope allowing the function that is 
+    returned to be called and access that value at a later time
+    console.log(accessVar())  = 1
+    
+    each instance created would have access to its own local variable
+    var acces2 = closure(2);
+    console.log(access2());  = 2
+    
+    so any time a function is returned from an enclosing function it has access to
+    the enclosing scope essentially remembering the arguments that the enclosing scope
+    had been passed. at the time the returned function is called it can access 
+    
+Recursion
+    a function that calls itself is recursive
+    
+    function power(base, exponent) {
+        if (exponent == 0) 
+            return 1;
+        else 
+            return base * power(base, exponent - 1);
+    }
+    
+    the downfall of this is it is slower than looping which cause a dilemna of speed
+    vs elegance so more understandable code for the programmer
+    
+Growing functions
+    an easy way to know if you should write a function is if you repeatadly write the
+    same code over and over. creating a function makes it easier to read and less
+    likely to make errors
+    
+Functions and side effects
+    it most cases a function is either called for a return value or a side effect but can
+    be used to create both situations
+    
+    function that return values are more valuable and can be easier to combine with
+    others than those the directly perform side effects
+    
+    pure function   
+        a function that produces a value but has no side effects and it also 
+        doesnt rely on side effects from other code, ex being it doesnt use global
+        variables that are changed by other code
+        
+        a function that when called with the same arguments always produces the same
+        value and nothing more
+        
+        this makes it simple to test and that if it works in one context it will 
+        perform the same way in another
+        
+        

@@ -65,19 +65,19 @@ var anySize = Number(prompt("Enter a number for the size of your board"));
 var empty = "";
 // loop for the line top to bottom
 for (var l = 0; l < anySize; l++) {
-    empty = "";
+    //empty = "";
     //this loop is for the rows left to right
     for (var r = 0; r < anySize; r++ ) {
         if((r + l) % 2 == 0) {
-            empty += "?";
+            empty += " ";
         } else {
             empty += "#";
         }
         
     }
-    console.log(empty);
+    empty = "\n";
 }
-
+console.log(empty);
 /*
 This works when I use a character in the space for the " " but if
 I add in just a space " " for some reason it doesnt work correctly
