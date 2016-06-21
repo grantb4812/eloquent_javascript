@@ -1,0 +1,210 @@
+Data Sets
+    Array
+        is used to store a sequence of values
+        var array =[one, two, three]
+        
+        array[i] 
+        
+        array's are given index begin with 0
+        
+        to access a value of an array you would used
+        array[i]  where i is representing which index
+        
+        this would return the contents held at the index
+        
+        any type can be stored in an array
+        
+Properties
+
+    almost all javascript values contain properties with the exception being null
+    and undefined
+    
+    examples would be string.length or Math.max
+    
+    we can access properties with either dot notation or bracket notation
+    
+    string.length or string["length"]
+    
+    if bracket notation is used javascript will evaluate the expression and use that 
+    as the property
+    
+    if the property your trying to access is not a valid variable name you have to use 
+    bracket notation
+    
+    all elements in array are stored as properties of that array
+    
+Methods
+
+    methods 
+        properties that contain functions
+        
+        these would be considered methods of the value they belong to
+        
+        string.toLowerCase and string.toUpperCase would be methods of type string
+        
+        array methods
+            push 
+                used to add values to the end of an array
+            pop
+                used to remove a value from the end of an array
+                
+            join
+                used to join string within an array
+                
+        these are just a few examples of methods of array
+        
+Objects
+
+    collections of properties that can be added or removed
+    
+    brace notation is one way of creating an object
+    
+    var object = {
+        prop1: value,
+        prop2: value
+    }
+    
+    properties have to be seperated by commas
+    
+    names that arent valid variables or number have to be quoted ""
+    
+    retrieving a property that doesnt exist will return undefined
+    
+    you can also assign a property using the = operator, if the propert value currently
+    exist it will be replaced and if not a new property on the object will be created
+    
+    the delete operator is a unary operator that will remove the specified property
+    
+    delete object.prop
+    
+    you can use the in operator to see if a value exist in an object
+    
+    "prop" in object
+    
+    arrays are a specialized type of an object used for storing information in sequence
+    
+    typeof [] will return object
+    
+Mutability
+
+    immutable
+        types of value number, string, and booleans are all immutable,
+        meaning that their you cant change an existing value of these types
+        
+        objects though are considered to be mutable because their value can be 
+        modified by changing its properties
+        
+        if comparing objects == will only return true if the objects are refering the 
+        same object
+        
+        such as 
+        
+        var obj1 = {val: 1};
+        var obj2 = obj1;
+        var obj3 = {val: 1};
+        
+        obj1 == obj2  true
+        obj1 == obj3 false
+        
+        because obj2 refers to obj1 any changes to obj1 will be reflected in obj 2
+        obj3 can hold the exact same values but will not be equal 
+        
+        correlation
+            is a measure of dependence between variables in the sense of mathmatics
+            
+Objects as maps
+
+    map
+        is a way to go from values in one domain to corresponding values in 
+        another domain
+        
+    we can loop through an object using a for construct 
+    
+    for (var prop in obj) {
+        console.log(obj[prop]);
+    }
+        
+        
+        
+more about arrays
+
+    methods used for adding or removing things at the beginning of an array
+    
+    unshift and shift
+        shift is used to remove things from the front of an array
+        
+        unshift will add to the front of an array
+    
+    indexOf
+    
+        will search for a property starting at the beginning
+        
+    lastIndexOf 
+    
+        will start searching at the end
+        
+    slice 
+    
+        is used to return array that has the elements between a specified set of 
+        indexes
+        
+    concat
+        is similar to the + operators but for array propertties
+        
+Strings and their properties
+
+    you cannot set new properties on string 
+    
+    strings also have .slice and indexOf properties with string you can pass more than one
+    character to indexOf
+    
+    trim
+        removes any white space
+        
+    charAt 
+        can access individual characters
+        
+the arguments object
+
+    when a functio is called it creates a variable named arguments and adds it to the 
+    environment that the function body runs in 
+    
+    this refers to an object that holds all the arguments that where passed to the 
+    function
+    
+    this does have a lenght property and names each property as 0,1,2 according to the 
+    arguments passed
+    
+    it however does not have any array methods available to it
+    
+    this is used in cases such as console.log and essentially will loop through arguments[i]
+    to display
+    
+The Math object
+
+    .max
+    
+    .min
+    
+    .sqrt
+    
+    the math object is used as a container to group related functionality and there is 
+    only one it provides a namespace so that the functions and values are not global variables
+
+    having to many global variables pollutes the name space and creates problems down the line
+    
+    refer to this section Math methods
+    
+The global object
+
+    each global variable created is essentially a property of the global object
+    
+    in the case of the browser the global scope object is stored in the window variable
+
+
+        
+    
+        
+        
+    
+    
